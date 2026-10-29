@@ -9,7 +9,7 @@
 <nav><a class="brand" href="./">Daybook<span>.</span></a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
 
 <h1>Privacy policy</h1>
-<p class="muted">Last updated 24 October 2026</p>
+<p class="muted">Last updated 29 October 2026</p>
 
 <p>Daybook is a personal task and money app made by Oscar Kiwalabye. This page explains what it stores, why, and who can see it. In short: your data is used only to run the app for you, it is never sold, and it is never used for advertising.</p>
 
@@ -25,15 +25,21 @@
 <h2>Google Calendar</h2>
 <p>If you connect Google Calendar, Daybook asks Google for two permissions:</p>
 <ul>
-  <li><b>See your calendars and events</b> (calendar.readonly), so your events can be shown in Daybook on your phone and computer.</li>
-  <li><b>Make and manage its own calendars</b> (calendar.app.created), so Daybook can keep a calendar called "Daybook" with your tasks in it. Daybook cannot change or delete any event in your other calendars.</li>
+  <li><b>See, add, change and delete your calendar events</b> (calendar), so your events show in Daybook on your phone and computer, Daybook can keep a calendar called "Daybook" with your tasks in it, and you can add or edit events from inside Daybook. Daybook only changes an event when you ask it to.</li>
 </ul>
 <p>Event titles, times, locations and calendar names are stored in Daybook's database for the period from 30 days ago to 90 days ahead, and refreshed regularly. Google's access key is stored encrypted on the server and is never sent to your devices.</p>
-<p>Daybook's use and transfer of information received from Google APIs to any other app will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. Google user data is used only to show your calendar and keep your tasks in sync. It is not sold, not used for advertising, not used to train AI models, and not read by people except when you ask for help with a problem.</p>
+<p>Daybook's use and transfer of information received from Google APIs to any other app will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. Google user data is used only to show your calendar, keep your tasks in sync, and plan your study time around your events (see AI features). It is not sold, not used for advertising, not used to train AI models, and not read by people except when you ask for help with a problem.</p>
 <p>You can disconnect at any time in Daybook (Google Calendar, then Disconnect). This removes the Daybook calendar from your Google account, revokes Daybook's access, and deletes the stored key and calendar data. You can also remove access at <a href="https://myaccount.google.com/connections">myaccount.google.com/connections</a>.</p>
 
 <h2>AI features</h2>
-<p>Quick capture (turning a voice note, typed note or screenshot into tasks) sends that text or image to Anthropic's Claude API to be read. Nothing is sent unless you use quick capture. Google Calendar data, SMS contents and money amounts are never sent to the AI. Anthropic does not use API data to train its models.</p>
+<p>Some features send data to an AI model to do their job, only when you use them or turn them on:</p>
+<ul>
+  <li><b>Quick capture</b> (a voice note, typed note or screenshot into tasks) sends that text or image to Anthropic's Claude API.</li>
+  <li><b>The study coach</b> (planning your study, talking to the coach, its evening and Sunday check-ins) sends Claude what it needs to plan: your courses and results, tasks, study plan, the titles and times of your calendar events for the next two weeks, habits, and a summary of your spending, balances and loans. Files you send the coach (PDF notes, past papers, photos) are stored privately in your account and sent to Claude to be read.</li>
+  <li><b>Money SMS Daybook can't read on its own</b> are sent to Claude to work out the amount and type. Withdrawal codes and PINs are removed first.</li>
+  <li><b>List suggestions</b> send only a new task's title and your list names to Google's Gemini API. Gemini's free tier may let Google use what it's sent to improve its products, so nothing else, no notes, money or calendar data, is ever sent to Gemini.</li>
+</ul>
+<p>Anthropic does not use API data to train its models. Google Calendar data is never sent to Gemini and never used to train any AI model.</p>
 
 <h2>Where it's kept and who can see it</h2>
 <p>Data is stored with <a href="https://supabase.com">Supabase</a>. Each person's rows are protected by row level security, so a signed-in user can only ever read their own data. Copies are also kept on your own devices so the app works offline. The developer can technically access the database to fix problems and does not look at your data otherwise.</p>
